@@ -2,15 +2,20 @@ import 'package:blogapp/components/my_button.dart';
 import 'package:blogapp/components/my_textfield.dart';
 import 'package:flutter/material.dart';
 
-class Login extends StatelessWidget {
-  final void Function()? onTap;
+class Register extends StatelessWidget {
 
-  Login({super.key,required this.onTap});
+   final void Function()? onTap;
 
+   Register({super.key,required this.onTap});
+
+  final TextEditingController usernameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmController = TextEditingController();
 
-  void login() {}
+ 
+
+  void register() {}
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,11 +35,19 @@ class Login extends StatelessWidget {
                 height: 25,
               ),
               const Text(
-                'Login',
+                'Register',
                 style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
               ),
               const SizedBox(
                 height: 50,
+              ),
+              MyTextfield(
+                hintText: "Username",
+                obscureText: false,
+                controller: usernameController,
+              ),
+              const SizedBox(
+                height: 10,
               ),
               MyTextfield(
                 hintText: "Email",
@@ -48,6 +61,14 @@ class Login extends StatelessWidget {
                 hintText: "Password",
                 obscureText: true,
                 controller: passwordController,
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              MyTextfield(
+                hintText: "Confirm Password",
+                obscureText: true,
+                controller: confirmController,
               ),
               const SizedBox(
                 height: 10,
@@ -66,8 +87,8 @@ class Login extends StatelessWidget {
                 height: 25,
               ),
               MyButton(
-                text: "Login",
-                onTap: login,
+                text: "Register",
+                onTap: register,
               ),
               const SizedBox(
                 height: 25,
@@ -75,11 +96,11 @@ class Login extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Don't have an account?"),
+                  Text("Already have an account?"),
                   GestureDetector(
                     onTap: onTap,
                     child: const Text(
-                      " Register Here",
+                      " Login Here",
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                       ),
@@ -93,4 +114,6 @@ class Login extends StatelessWidget {
       ),
     );
   }
+
+  
 }

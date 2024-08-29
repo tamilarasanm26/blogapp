@@ -1,5 +1,7 @@
+import 'package:blogapp/auth/login_or_register.dart';
 import 'package:blogapp/firebase_options.dart';
-import 'package:blogapp/pages/login.dart';
+// import 'package:blogapp/pages/login.dart';
+// import 'package:blogapp/pages/register.dart';
 import 'package:blogapp/theme/dark_mode.dart';
 import 'package:blogapp/theme/light_mode.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -20,7 +22,7 @@ class MyApp extends StatelessWidget {
     return   MaterialApp(
       debugShowCheckedModeBanner: false,
 
-      home: Login(),
+      home: const LoginOrRegister(),
       // theme: lightMode,
       darkTheme: darkMode,      
     );
